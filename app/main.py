@@ -56,7 +56,6 @@ def setup_local_llm():
 
     model = AutoModelForCausalLM.from_pretrained(
         model_name,
-        token=hf_token,
         # quantization_config=bnb_config,
         torch_dtype=torch.float16,
         device_map="cpu",  # Automatically handle device placement
