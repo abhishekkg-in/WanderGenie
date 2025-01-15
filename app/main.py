@@ -44,7 +44,7 @@ Setup local llm
 """
 def setup_local_llm():
     model_name = "mistralai/Mistral-7B-v0.1"
-    hf_token = ""
+   
 
     tokenizer = AutoTokenizer.from_pretrained(model_name)
     
