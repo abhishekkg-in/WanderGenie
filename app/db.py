@@ -29,6 +29,35 @@ def create_travel_knowledge_base_table():
 
 
 
+"""
+Fetch travel_knowledge_travel table data
+"""
+def fetch_travel_knowledge_base_table():
+    cursor = connect_db()
+    cursor.execute("SELECT id, description || ' ' || details || ' ' || metadata FROM travel_knowledge_base")
+    rows = cursor.fetchall()
+    return rows
+
+
+"""
+Update travel_knowledge_travel table with embedings
+"""
+def update_embeding(id, embedding):
+    cursor = connect_db()
+    cursor.execute("UPDATE travel_knowledge_base SET embedding = ? WHERE id = ?", (str(embedding), id))
+    
+
+
+"""
+Fetch embedings of travel_knowledge_travel table
+"""
+def fetch_embedings():
+    cursor = connect_db()
+    cursor.execute("SELECT id, embedding FROM travel_knowledge_base")
+    rows = cursor.fetchall()
+    return rows
+
+
 
 
 
@@ -37,4 +66,4 @@ def create_travel_knowledge_base_table():
 if __name__=="__main__":
     print(" Started ".center(100, "-"))
     # create_travel_knowledge_base_table()
-    
+
