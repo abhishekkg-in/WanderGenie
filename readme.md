@@ -54,7 +54,7 @@ This project leverages cutting-edge technologies like **LLMs**, **RAG**, and **E
 
 3. **Set Up the Database**:
    ```bash
-   python data/setup_database.py
+   python data/db.py
    ```
 
 4. **Run the Application**:

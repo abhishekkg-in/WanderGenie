@@ -65,5 +65,5 @@ def fetch_embedings():
 
 if __name__=="__main__":
     print(" Started ".center(100, "-"))
-    # create_travel_knowledge_base_table()
+    create_travel_knowledge_base_table()
 
