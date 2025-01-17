@@ -1,4 +1,4 @@
-from db import fetch_travel_knowledge_base_table, update_embeding, fetch_embedings
+from data.db import fetch_travel_knowledge_base_table, update_embeding, fetch_embedings
 from transformers import GPT2LMHeadModel, GPT2Tokenizer, AutoModelForCausalLM, AutoTokenizer, BitsAndBytesConfig
 from sentence_transformers import SentenceTransformer
 import torch

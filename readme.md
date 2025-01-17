@@ -1,6 +1,6 @@
 # 🌍 WanderGenie - Your AI-Powered Travel Companion  
 
-Welcome to **WanderGenie**, an intelligent travel recommendation system designed for **Holiday Tribe**.  
+Welcome to **WanderGenie**, an intelligent travel recommendation system.  
 This project leverages cutting-edge technologies like **LLMs**, **RAG**, and **Embeddings** to provide personalized travel recommendations.  
 
 ---
@@ -24,3 +24,14 @@ This project leverages cutting-edge technologies like **LLMs**, **RAG**, and **E
 ├── 📁 response_generator # LLM-based response generation  
 ├── 📄 requirements.txt   # Project dependencies  
 └── 📄 app.py             # Main application  
+
+---
+## 🛠️ Tech Stack
+
+- Programming Language: Python 🐍
+- Database: SQLite 🗄️
+- Embeddings: Sentence Transformers 📘
+- Vector Search: FAISS 🔍
+- LLM: Hugging Face Transformers 🤗
+
+---
