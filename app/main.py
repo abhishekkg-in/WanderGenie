@@ -165,7 +165,8 @@ def main():
 
     print(" Main ".center(100, '-'))
     print()
-    generate_response()
+    print(fetch_travel_knowledge_base_table())
+    # generate_response()
 
 
 if __name__=="__main__":
