@@ -1,6 +1,7 @@
 from data.db import fetch_travel_knowledge_base_table, update_embeding, fetch_embedings
 from transformers import GPT2LMHeadModel, GPT2Tokenizer, AutoModelForCausalLM, AutoTokenizer, BitsAndBytesConfig
 from sentence_transformers import SentenceTransformer
+import transformers
 import torch
 import faiss
 import numpy as np
@@ -156,6 +157,20 @@ def generate_response(user_query="places to visit in france"):
                                                                  
 
 
+
+def generate_response_from_meta_llama():
+    model_id = "meta-llama/Meta-Llama-3-8B"
+
+    pipeline = transformers.pipeline(
+        "text-generation", model=model_id, model_kwargs={"torch_dtype": torch.bfloat16}, device_map="auto"
+    )
+
+    pipeline("Hey how are you doing today?")
+
+
+
+
+
 """
 ===================================================================
 =========================== MAIN FUNCTION =========================
@@ -165,8 +180,9 @@ def main():
 
     print(" Main ".center(100, '-'))
     print()
-    print(fetch_travel_knowledge_base_table())
+    # print(fetch_travel_knowledge_base_table())
     # generate_response()
+    generate_response_from_meta_llama()
 
 
 if __name__=="__main__":
