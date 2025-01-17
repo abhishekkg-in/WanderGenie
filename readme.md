@@ -37,3 +37,30 @@ This project leverages cutting-edge technologies like **LLMs**, **RAG**, and **E
 - LLM: Hugging Face Transformers 🤗
 
 ---
+
+---
+
+## 🖥️ Installation
+
+1. **Clone the Repository**:
+   ```bash
+   git clone https://github.com/<your-username>/wander-genie.git
+   cd wander-genie
+   ```
+
+2. **Install Dependencies**:
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+3. **Set Up the Database**:
+   ```bash
+   python data/setup_database.py
+   ```
+
+4. **Run the Application**:
+   ```bash
+   python app.py
+   ```
+
+---
