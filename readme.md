@@ -24,8 +24,10 @@ This project leverages cutting-edge technologies like **LLMs**, **RAG**, and **E
 ├── 📁 response_generator # LLM-based response generation  
 ├── 📄 requirements.txt   # Project dependencies  
 └── 📄 app.py             # Main application  
+```
 
 ---
+
 ## 🛠️ Tech Stack
 
 - Programming Language: Python 🐍

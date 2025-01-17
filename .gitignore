@@ -1,3 +1,13 @@
+# Environment variables
 .env
-.db
+
+# Database files
+*.db
+
+# Git configuration
 .gitignore
+
+# Optional: More specific database patterns
+# db.sqlite3
+# *.sqlite
+# *.sqlite3
