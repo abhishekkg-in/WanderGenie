@@ -63,3 +63,13 @@ This project leverages cutting-edge technologies like **LLMs**, **RAG**, and **E
    ```
 
 ---
+
+## 🎮 Demo
+###  Here's how WanderGenie works:
+
+- Enter your travel query (e.g., "Top places to visit in Paris").
+- The system retrieves the most relevant destinations using FAISS.
+- AI generates personalized recommendations based on the retrieved data.
+- You receive a detailed and engaging response!
+
+---
