@@ -10,7 +10,6 @@ def connect_db():
     return cursor
 
 
-
 """
 Creating 'travel_knowledge_base_table' 
 """
@@ -26,7 +25,6 @@ def create_travel_knowledge_base_table():
             embeding TEXT
         )
     ''')
-
 
 
 """
@@ -47,7 +45,6 @@ def update_embeding(id, embedding):
     cursor.execute("UPDATE travel_knowledge_base SET embedding = ? WHERE id = ?", (str(embedding), id))
     
 
-
 """
 Fetch embedings of travel_knowledge_travel table
 """
@@ -56,10 +53,6 @@ def fetch_embedings():
     cursor.execute("SELECT id, embedding FROM travel_knowledge_base")
     rows = cursor.fetchall()
     return rows
-
-
-
-
 
 
 

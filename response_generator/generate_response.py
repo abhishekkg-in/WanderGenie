@@ -30,22 +30,8 @@ def generate_response_from_llama(query):
       "Authorization": f"Bearer {api_key}"
     }
 
-    # with tqdm(total=100, desc="Loading Response") as pbar:
-    #     start_time = time.time()
-    #     response = requests.request("POST", url, headers=headers, data=json.dumps(payload))
-
-    #     while not response.raw.closed:
-    #         elapsed = time.time() - start_time
-    #         # Estimate progress based on typical response time
-    #         progress = min(95, int(elapsed / estimated_total_time * 100))
-    #         pbar.update(progress - pbar.n)
-    #         time.sleep(0.1)
-        
-    #     pbar.update(100 - pbar.n)
-
 
     response = requests.request("POST", url, headers=headers, data=json.dumps(payload))
-
     response_formated = json.loads(response.text).get("choices")[0].get("message").get("content")
 
     return  response_formated
