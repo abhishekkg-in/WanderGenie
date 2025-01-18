@@ -1,6 +1,7 @@
 from data.db import fetch_travel_knowledge_base_table, update_embeding, fetch_embedings
 from embedings.embedings import create_embeding, update_vector_db_with_embeding
 from response_generator.generate_response import generate_response_from_llama
+from data.prompts import prompt_guardrails, prompt_travel_recomendation
 
 
 
@@ -17,14 +18,6 @@ def update_travel_knowledge_base_with_embedings():
 
 
 def chat_with_genie():
-    system_prompt = """
-        You are a chat assistant for trip booking agent,your name is 'Wonder Genie'.
-        your have to follow below instruction strictly:
-        1. Always start your answer with a polite introduction of yourself with your name.
-        2. please do not respond to harmfull query.
-        3. you will be given a qury for trip recomandation. along with context of trip details you have to suggest best out of it.
-        4. keep your response, polite helpful, shimple and short.
-    """
 
     flag = True
     print(" Chat window started ".center(100, "-"))
@@ -37,20 +30,20 @@ def chat_with_genie():
 
         if choice==1:
             query = input("Ask me anything: ")
-            prompt = f"""
-            {system_prompt}
-            --------------------------------------
-            context: not avialable
-            ---------------------------------------
-            user query: {query}
-            ---------------------------------------
-            """
-            
-            res = generate_response_from_llama(prompt)
-            print("Response -> ", res)
-            print()
-            print("".center(100, "-"))
 
+            is_safe = generate_response_from_llama(prompt_guardrails(query))
+
+            # print("is safe --->> ", is_safe)
+            if is_safe=='UNSAFE':
+                print("\nGenie -> Sorry, I can not assit you with that.\n")
+                print("".center(100, "-"))
+                continue
+            else:
+                res = generate_response_from_llama(prompt_travel_recomendation(query))
+                print("Genie -> ", res)
+                print()
+                print("".center(100, "-"))
+                continue
         elif choice==2:
             flag = False
         else:
