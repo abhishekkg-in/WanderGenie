@@ -1,7 +1,11 @@
 # 🌍 WanderGenie - Your AI-Powered Travel Companion  
 
 Welcome to **WanderGenie**, an intelligent travel recommendation system.  
-This project leverages cutting-edge technologies like **LLMs**, **RAG**, and **Embeddings** to provide personalized travel recommendations.  
+This project leverages cutting-edge technologies like **LLMs**, **RAG**, and **Embeddings** to provide personalized travel recommendations. 
+
+## 🎥 Demo Video
+Watch the demo video to see **WanderGenie** in action:  [Demo Video](https://drive.google.com/file/d/1zcXlLFw0FlZXWhQkSd9j8XaPiYwTZjJu/view?usp=sharing)
+<video src="./SecureFileShare/demo.mp4" controls width="600"></video>
 
 ---
 
@@ -20,7 +24,6 @@ This project leverages cutting-edge technologies like **LLMs**, **RAG**, and **E
 📦 WanderGenie  
 ├── 📁 data               # SQL scripts and sample data  
 ├── 📁 embeddings         # Code for generating embeddings  
-├── 📁 retrieval          # FAISS-based similarity search  
 ├── 📁 response_generator # LLM-based response generation  
 ├── 📄 requirements.txt   # Project dependencies  
 └── 📄 app.py             # Main application  
