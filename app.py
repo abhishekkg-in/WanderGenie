@@ -7,6 +7,10 @@ import faiss
 import numpy as np
 
 
+import os
+os.environ['TF_ENABLE_ONEDNN_OPTS'] = '0'
+
+
 """
     This function updates the travel knowledge base with embeddings.
     It fetches the rows from the travel knowledge base table, creates embeddings
@@ -104,30 +108,37 @@ def chat_with_genie():
         print("Please select one choice from below options. ")
         print("1. Ask a trip details,")
         print("2. Quit")
-        choice = int(input("Enter your choice: "))
 
-        if choice==1:
-            query = input("Ask me anything: ")
+        try:
+            choice = int(input("Enter your choice: "))
+            if choice==1:
+                query = input("Ask me anything: ")
 
-            is_safe = generate_response_from_llama(prompt_guardrails(query))
+                is_safe = generate_response_from_llama(prompt_guardrails(query))
 
-            # print("is safe --->> ", is_safe)
-            if is_safe=='UNSAFE':
-                print("\nGenie -> Sorry, I can not assit you with that.\n")
-                print("".center(100, "-"))
-                continue
+                # print("is safe --->> ", is_safe)
+                if is_safe=='UNSAFE':
+                    print("\nGenie -> Sorry, I can not assit you with that.\n")
+                    print("".center(100, "-"))
+                    continue
+                else:
+                    context = search_vector_db(query=query)
+                    res = generate_response_from_llama(prompt_travel_recomendation(query=query, context=context))
+                    print("Genie -> ", res)
+                    print()
+                    print("".center(100, "-"))
+                    continue
+            elif choice==2:
+                flag = False
             else:
-                context = search_vector_db(query=query)
-                res = generate_response_from_llama(prompt_travel_recomendation(query=query, context=context))
-                print("Genie -> ", res)
-                print()
-                print("".center(100, "-"))
+                print("Please enter a valide number.")
                 continue
-        elif choice==2:
-            flag = False
-        else:
-            print("Please enter a valide number.")
+        except ValueError as e:
+            print()
+            print("Please enter only number as a choice. ".ljust(100, "-"))
+            print()
             continue
+        
 
 
 

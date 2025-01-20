@@ -41,7 +41,7 @@ def create_travel_knowledge_base_table():
     It iterates over a list of data, where each item is expected to contain details about a travel destination.
     It inserts the information into the table and handles any exceptions such as duplicates or missing keys.
 """
-def create_travel_knowledge_base_table(data):
+def update_travel_knowledge_base_table(data):
     cursor = connect_db()
     for item in data:
         print('item -> ', item)
@@ -118,9 +118,10 @@ def fetch_embedings():
     the travel knowledge base table in the SQLite database with the contents of the loaded data.
 """
 def main():
-    with open('E:\Project\WanderGenie\data\knowledge_base.json', 'r') as f:
+    # create_travel_knowledge_base_table()
+    with open(r'A:\Projects\wonder-genie\data\knowledge_base.json', 'r') as f:
         data = json.loads(f.read())
-        create_travel_knowledge_base_table(data)
+        update_travel_knowledge_base_table(data)
 
 
 
